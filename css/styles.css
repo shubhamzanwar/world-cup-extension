@@ -1,13 +1,14 @@
 body {
     margin: 0;
     background: url('../assets/background.jpg');
-    background-size: 100%;
+    background-size: stretch;
     background-position: bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
+    justify-content: center;
 }
-.table-container{
+.table-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -16,7 +17,8 @@ body {
     width: 90%;
 }
 .group-table {
-    border: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
     text-align: center;
     width: 100%;
     font-weight: bold;
@@ -41,4 +43,47 @@ body {
 td, th {
     padding: 10px 0;
     font-size: 12px;
+}
+
+.current-match {
+    height: 20vh;
+    display: flex;
+    width: 30%;
+    align-items: center;
+}
+
+.team {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    padding: 10px;
+}
+
+.dash {
+    height: 0;
+    width: 20px;
+    border-top: 3px solid black;
+    border-bottom: 2px solid black;
+}
+
+.team-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.score {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#home-team {
+    text-align: right;
+}
+
+#away-team {
+    flex-direction: row-reverse;
 }

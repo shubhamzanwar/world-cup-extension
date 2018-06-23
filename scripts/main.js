@@ -1,8 +1,6 @@
 const populate = (groups) => {
   const first4 = groups.slice(0, 4)
   const last4 = groups.slice(4)
-  const row1 = document.getElementById('row1');
-  const row2 = document.getElementById('row2');
 
   let row1Content = '';
   let row2Content = '';
@@ -15,8 +13,35 @@ const populate = (groups) => {
     const group = last4[i].group;
     row2Content += createTable(group);
   }
-
-  row1.innerHTML = row1Content;
-  row2.innerHTML = row2Content;
+  return `
+    <div class="table-container">
+      ${row1Content}
+    </div>
+    <div class="table-container">
+      ${row2Content}
+    </div>
+  `
 }
 
+const makeCurrentMatch = (currentMatchDetails) => {
+  if (currentMatchDetails.length > 0) {
+    const currentMatch = currentMatchDetails[0];
+    const matchContent = `
+      <div id="current" class="current-match">
+        ${createCurrentMatch(currentMatch)}
+      </div>
+    `;
+    return matchContent;
+  }
+  return '';
+}
+
+Promise.all([
+  fetchUrl(groupTable),
+  fetchUrl(currentMatch)
+])
+  .then(([groupDetails, currentMatchDetails]) => {
+    const content = appHeader + makeCurrentMatch(currentMatchDetails) + populate(groupDetails);
+    const app = document.getElementById('app');
+    app.innerHTML = content;
+  })

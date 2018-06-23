@@ -1,4 +1,3 @@
 
-fetch(groupTable)
-  .then((response) => response.json())
-  .then(populate);
+const fetchUrl = (url) => fetch(url)
+  .then((response) => response.json());

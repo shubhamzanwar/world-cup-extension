@@ -1,0 +1,1 @@
+const appHeader = '<h1 class="app-heading">Fifa world cup 2018!</h1>';
