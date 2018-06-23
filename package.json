@@ -1,0 +1,19 @@
+{
+  "name": "fifa-world-cup-18-extention",
+  "version": "1.0.0",
+  "description": "A chrome extention that displays world cup standings when a new tab is opened",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fifa",
+    "worldcup",
+    "2018"
+  ],
+  "author": "Shubham Zanwar",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}

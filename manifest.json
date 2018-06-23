@@ -1,0 +1,14 @@
+{
+    "manifest_version": 2,
+    "name": "FifaWorldcup2018",
+    "description": "A chrome extention that displays world cup standings when a new tab is opened",
+    "version": "1",
+    "author": "Shubham Zanwar",
+   "browser_action": {
+      "default_title": "Have a good day"
+    },
+   "chrome_url_overrides" : {
+     "newtab": "newtab.html"
+   },
+    "permissions": ["activeTab"]
+}

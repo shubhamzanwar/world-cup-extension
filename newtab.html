@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/style.css">
+        <title>Fifa world cup 2018</title>
+        <style>
+            body {
+                margin: 0;
+                background: url('./assets/background.jpg');
+                background-size: 100%;
+                background-position: bottom;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                display: flex;
+            }
+            .table-container{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                margin-bottom: 10px;
+                flex-wrap: wrap;
+            }
+            .group-table {
+                border: 1px solid black;
+                text-align: center;
+                width: 100%;
+            }
+            .group-container {
+                flex: 1;
+            }
+            .table-row:nth-child(even) {
+                background: blue;
+                color: white;
+            }
+            .app-container {
+                flex-grow: 1;
+                background: rgba(255, 255, 255, 0.3);
+            }
+            .app-heading {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="app-container">
+            <h1 class="app-heading">Fifa world cup 2018!</h1>
+            <div class="table-container">
+                <div class="group-container">
+                    <h3>Group: A</h3>
+                    <table class="group-table">
+                        <thead>
+                            <th>Team</th><th>Played</th><th>Wins</th><th>Losses</th><th>GD</th><th>Points</th>
+                        </thead>
+                        <tbody id="A">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="group-container">
+                    <h3>Group: B</h3>
+                    <table class="group-table">
+                        <thead>
+                            <th>Team</th><th>Played</th><th>Wins</th><th>Losses</th><th>GD</th><th>Points</th>
+                        </thead>
+                        <tbody id="B">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="group-container">
+                    <h3>Group: C</h3>
+                    <table class="group-table">
+                        <thead>
+                            <th>Team</th><th>Played</th><th>Wins</th><th>Losses</th><th>GD</th><th>Points</th>
+                        </thead>
+                        <tbody id="C">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="group-container">
+                    <h3>Group: D</h3>
+                    <table class="group-table">
+                        <thead>
+                            <th>Team</th><th>Played</th><th>Wins</th><th>Losses</th><th>GD</th><th>Points</th>
+                        </thead>
+                        <tbody id="D">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="table-container">
+                <div class="group-container">
+                    <h3>Group: E</h3>
+                    <table class="group-table">
+                        <thead>
+                            <th>Team</th><th>Played</th><th>Wins</th><th>Losses</th><th>GD</th><th>Points</th>
+                        </thead>
+                        <tbody id="E">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="group-container">
+                    <h3>Group: F</h3>
+                    <table class="group-table">
+                        <thead>
+                            <th>Team</th><th>Played</th><th>Wins</th><th>Losses</th><th>GD</th><th>Points</th>
+                        </thead>
+                        <tbody id="F">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="group-container">
+                    <h3>Group: G</h3>
+                    <table class="group-table">
+                        <thead>
+                            <th>Team</th><th>Played</th><th>Wins</th><th>Losses</th><th>GD</th><th>Points</th>
+                        </thead>
+                        <tbody id="G">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="group-container">
+                    <h3>Group: H</h3>
+                    <table class="group-table">
+                        <thead>
+                            <th>Team</th><th>Played</th><th>Wins</th><th>Losses</th><th>GD</th><th>Points</th>
+                        </thead>
+                        <tbody id="H">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="./constants/urls.js"></script>
+        <script src="./constants/groupTableHeader.js"></script>
+        <script src="./scripts/createTable.js"></script>
+        <script src="./scripts/main.js"></script>
+        <script src="./scripts/fetch.js"></script>
+    </body>
+</html>
