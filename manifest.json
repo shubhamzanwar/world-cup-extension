@@ -5,7 +5,8 @@
     "version": "1",
     "author": "Shubham Zanwar",
    "browser_action": {
-      "default_title": "Have a good day"
+      "default_title": "Have a good day",
+      "default_icon": "./assets/icon.png"
     },
    "chrome_url_overrides" : {
      "newtab": "newtab.html"
