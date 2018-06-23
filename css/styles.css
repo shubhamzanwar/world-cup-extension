@@ -37,10 +37,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.5);
 }
 
-td, th {
+.group-table td,
+.group-table th {
     padding: 10px 0;
     font-size: 12px;
 }
@@ -86,4 +87,26 @@ td, th {
 
 #away-team {
     flex-direction: row-reverse;
+}
+
+.matches-today {
+    width: 90%;
+    text-align: center;
+}
+
+.matches-table {
+    margin: auto;
+}
+
+.home {
+    text-align: right;
+}
+
+.away {
+    text-align: left;
+}
+
+.match-row > td {
+    padding: 10px;
+    font-weight: bold;
 }

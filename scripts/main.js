@@ -36,12 +36,29 @@ const makeCurrentMatch = (currentMatchDetails) => {
   return '';
 }
 
+const makeTodaysMatches = (todaysMatches) => {
+  console.log(todaysMatches);
+  if(todaysMatches.length > 0){
+    const matches = `
+    <div class="matches-today">
+      <h1 class="matches-today-heading">Matches today</h1>
+      <table class="matches-table">
+        ${(todaysMatches.map((match) => generateMatchRow(match)).join(''))}
+      </table>
+    </div>
+    `;
+    return matches;
+  }
+  return '';
+}
+
 Promise.all([
   fetchUrl(groupTable),
-  fetchUrl(currentMatch)
+  fetchUrl(currentMatch),
+  fetchUrl(todaysMatches)
 ])
-  .then(([groupDetails, currentMatchDetails]) => {
-    const content = appHeader + makeCurrentMatch(currentMatchDetails) + populate(groupDetails);
+  .then(([groupDetails, currentMatchDetails, todaysMatches]) => {
+    const content = appHeader + makeCurrentMatch(currentMatchDetails) + populate(groupDetails) + makeTodaysMatches(todaysMatches);
     const app = document.getElementById('app');
     app.innerHTML = content;
   })
