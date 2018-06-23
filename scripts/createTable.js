@@ -6,16 +6,17 @@ const createTeamRow = (team) => {
   const GD = team.goal_differential;
   const points = team.points;
 
-  return `
-    <tr>
-        <td>${teamName}</td>
-        <td>${gamesPlayed}</td>
-        <td>${wins}</td>
-        <td>${losses}</td>
-        <td>${GD}</td>
-        <td>${points}</td>
-    </tr>
-  `
+  const row = `
+  <tr class="table-row">
+      <td>${teamName}</td>
+      <td>${gamesPlayed}</td>
+      <td>${wins}</td>
+      <td>${losses}</td>
+      <td>${GD}</td>
+      <td>${points}</td>
+  </tr>
+`
+  return row;
 }
 
 const createTable = (group) => {
@@ -24,10 +25,10 @@ const createTable = (group) => {
   return `
     <div class="group-container">
         <h3>Group: ${groupName}</h3>
-        <table class="group-table">
-            ${groupTableHeader}
+        <table class="group-table" CELLSPACING=0>
+            ${groupTableHeader()}
             <tbody>
-                ${teams.map((team) => createTeamRow(team.team))}
+                ${(teams.map((team) => createTeamRow(team.team))).join('')}
             </tbody>
         </table>
     </div>
