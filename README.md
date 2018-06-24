@@ -5,4 +5,6 @@ It displays the current group status, lists the matches of the current day and m
 
 Will also include a list of the knockout matches once the group stages pass to keep you informed about when your favorite team is playing ;)
 
+You may find the extension [here](https://chrome.google.com/webstore/detail/fifaworldcup2018/bokkknehmegfggcnebeecinnbiogemfa)
+
 Cheers :coffee:
