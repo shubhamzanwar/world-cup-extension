@@ -1,37 +1,13 @@
 body {
     margin: 0;
     background: url('../assets/background.png');
-    background-size: stretch;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
     justify-content: center;
 }
-.table-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-    width: 90%;
-}
-.group-table {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    text-align: center;
-    width: 100%;
-    font-weight: bold;
-}
-.group-container {
-    width: 25%;
-    min-width: 270px;
-}
-.table-row:nth-child(even) {
-    background:rgba(239,83,80, 0.6);
-}
-.table-row:nth-child(odd) {
-    background: rgba(30,136,229, 0.6);
-}
+
 .app-container {
     flex-grow: 1;
     display: flex;
@@ -40,6 +16,58 @@ body {
     background: rgba(255, 255, 255, 0.4);
 }
 
+.results-container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+}
+.knocks-container {
+    flex: 3;
+    max-height: 50vh;
+    overflow: auto;
+    text-align: center;
+    margin: 0 10px;
+}
+.knock-heading {
+    padding: 10px 0;
+}
+.knock {
+    border-bottom: 1px solid black;
+}
+
+.even {
+    background:rgba(239,83,80, 0.6);
+}
+.odd {
+    background: rgba(30,136,229, 0.6);
+}
+
+.table-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex: 1;
+    max-height: 50vh;
+    overflow: auto;
+}
+.group-table {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    box-sizing: border-box;
+    text-align: center;
+    min-width: 25%;
+    flex-grow: 1;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.table-row:nth-child(even) {
+    background:rgba(239,83,80, 0.6);
+}
+.table-row:nth-child(odd) {
+    background: rgba(30,136,229, 0.6);
+}
 .group-table td,
 .group-table th {
     padding: 10px 0;

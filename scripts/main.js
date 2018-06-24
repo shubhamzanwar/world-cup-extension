@@ -1,4 +1,27 @@
-const populate = (groups) => {
+
+const makeKnocks = (knocks) => {
+  const roundOf16 = knocks.slice(0, 8);
+  const quarts = knocks.slice(8, 12);
+  const semis = knocks.slice(12, 14);
+  const thirdPlace = [knocks[14]];
+  const finals = [knocks[15]];
+  return `
+    <div class="knocks-container">
+      <h2 class="knock-heading odd">Round of 16</h2>
+      ${(roundOf16.map(makeKnocksRow)).join('')}
+      <h2 class="knock-heading even">Quarter Finals</h2>
+      ${(quarts.map(makeKnocksRow)).join('')}
+      <h2 class="knock-heading odd">Semi finals</h2>
+      ${(semis.map(makeKnocksRow)).join('')}
+      <h2 class="knock-heading even">Third place</h2>
+      ${(thirdPlace.map(makeKnocksRow)).join('')}
+      <h2 class="knock-heading odd">Finals</h2>
+      ${(finals.map(makeKnocksRow)).join('')}
+    </div>
+  `
+}
+
+const populate = (groups, matches) => {
   const first4 = groups.slice(0, 4)
   const last4 = groups.slice(4)
 
@@ -6,22 +29,21 @@ const populate = (groups) => {
   let row2Content = '';
 
   for(let i = 0; i < first4.length; i++){
-    const group = first4[i].group;
-    row1Content += createTable(group);
+    row1Content += createTable(first4[i].group);
+    row2Content += createTable(last4[i].group);
   }
-  for(let i = 0; i < last4.length; i++){
-    const group = last4[i].group;
-    row2Content += createTable(group);
-  }
+  
   return `
-    <div class="table-container">
-      ${row1Content}
-    </div>
-    <div class="table-container">
-      ${row2Content}
+    <div class="results-container">
+    ${matches ? makeKnocks(matches.slice(0, 16).reverse()) : ''}
+      <div class="table-container">
+        ${row1Content}
+        ${row2Content}
+      </div>
     </div>
   `
 }
+
 
 const makeCurrentMatch = (currentMatchDetails) => {
   if (currentMatchDetails.length > 0) {
@@ -54,10 +76,12 @@ const makeTodaysMatches = (todaysMatches) => {
 Promise.all([
   fetchUrl(groupTable),
   fetchUrl(currentMatch),
+  new Date(2018, 5, 28, 19, 30) < new Date() ? fetchUrl(allMatches) : undefined,
   fetchUrl(todaysMatches)
 ])
-  .then(([groupDetails, currentMatchDetails, todaysMatches]) => {
-    const content = appHeader + makeCurrentMatch(currentMatchDetails) + populate(groupDetails) + makeTodaysMatches(todaysMatches);
+  .then(([groupDetails, currentMatchDetails, allMatches, todaysMatches]) => {
+    console.log();
+    const content = appHeader + makeCurrentMatch(currentMatchDetails) + populate(groupDetails, allMatches) + makeTodaysMatches(todaysMatches);
     const app = document.getElementById('app');
     app.innerHTML = content;
   })

@@ -23,14 +23,12 @@ const createTable = (group) => {
   const groupName = group.letter;
   const teams = group.teams;
   return `
-    <div class="group-container">
-        <h3>Group: ${groupName}</h3>
-        <table class="group-table" CELLSPACING=0>
-            ${groupTableHeader()}
-            <tbody>
-                ${(teams.map((team) => createTeamRow(team.team))).join('')}
-            </tbody>
-        </table>
-    </div>
+      <table class="group-table" CELLSPACING=0>
+          <caption>Group: ${groupName}</caption>
+          ${groupTableHeader()}
+          <tbody>
+              ${(teams.map((team) => createTeamRow(team.team))).join('')}
+          </tbody>
+      </table>
   `
 }
