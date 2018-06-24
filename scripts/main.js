@@ -37,7 +37,6 @@ const makeCurrentMatch = (currentMatchDetails) => {
 }
 
 const makeTodaysMatches = (todaysMatches) => {
-  console.log(todaysMatches);
   if(todaysMatches.length > 0){
     const matches = `
     <div class="matches-today">
