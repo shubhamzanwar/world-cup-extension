@@ -21,13 +21,13 @@ const createTeamRow = (team) => {
 
 const createTable = (group) => {
   const groupName = group.letter;
-  const teams = group.teams;
+  const teams = group.ordered_teams;
   return `
       <table class="group-table" CELLSPACING=0>
           <caption>Group: ${groupName}</caption>
           ${groupTableHeader()}
           <tbody>
-              ${(teams.map((team) => createTeamRow(team.team))).join('')}
+              ${(teams.map((team) => createTeamRow(team))).join('')}
           </tbody>
       </table>
   `
