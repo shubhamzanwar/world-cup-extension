@@ -29,8 +29,8 @@ const populate = (groups, matches) => {
   let row2Content = '';
 
   for(let i = 0; i < first4.length; i++){
-    row1Content += createTable(first4[i].group);
-    row2Content += createTable(last4[i].group);
+    row1Content += createTable(first4[i]);
+    row2Content += createTable(last4[i]);
   }
   
   return `
@@ -76,11 +76,10 @@ const makeTodaysMatches = (todaysMatches) => {
 Promise.all([
   fetchUrl(groupTable),
   fetchUrl(currentMatch),
-  new Date(2018, 5, 28, 19, 30) < new Date() ? fetchUrl(allMatches) : undefined,
+  fetchUrl(allMatches),
   fetchUrl(todaysMatches)
 ])
   .then(([groupDetails, currentMatchDetails, allMatches, todaysMatches]) => {
-    console.log();
     const content = appHeader + makeCurrentMatch(currentMatchDetails) + populate(groupDetails, allMatches) + makeTodaysMatches(todaysMatches);
     const app = document.getElementById('app');
     app.innerHTML = content;
